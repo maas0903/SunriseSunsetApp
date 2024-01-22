@@ -1,0 +1,163 @@
+﻿@inherits SunriseSunsetBase
+@page "/sunrisesunset"
+@* @using Models
+@using Helpers
+@using Data
+@using Newtonsoft.Json;
+@using Google.TimeZoneApi;
+ *@
+ @* @using static ComponentEnums *@
+
+@* @inject IHttpClientFactory ClientFactory *@
+@attribute [StreamRendering]
+
+<PageTitle>Sunrise & Sunset</PageTitle>
+
+<h1>Sunrise & Sunset</h1>
+
+@* <p>Sunrise and Sunset for a specific location</p> *@
+
+
+
+
+
+ 
+@if (sunriseSunsetModelYzerFontein.results == null)
+{
+    <p><em>Loading...</em></p>
+} 
+ else
+{
+    //add a picture from wwwroot/images
+    <img src="images/twilight_types.png" alt="twilight_types" width="740" height="518" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Yzerfontein (GMT+2)</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>Astronomical twilight begin (dawn at -18°): @sunriseSunsetModelYzerFontein.results.astronomical_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Nautical twilight begin (dawn at -12°): @sunriseSunsetModelYzerFontein.results.nautical_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Civil twilight begin (dawn at -6°): @sunriseSunsetModelYzerFontein.results.civil_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Sunrise: @sunriseSunsetModelYzerFontein.results.sunrise</td>
+                </tr>
+                <tr>
+                    <td>Solar noon is @sunriseSunsetModelYzerFontein.results.solar_noon</td>
+                </tr>
+                <tr>
+                    <td>Sunset: @sunriseSunsetModelYzerFontein.results.sunset</td>
+                </tr>
+                <tr>
+                    <td>Civil twilight end (dusk at 6°): @sunriseSunsetModelYzerFontein.results.civil_twilight_end</td>
+                </tr>
+                <tr>
+                    <td>Nautical twilight end (dusk at 12°): @sunriseSunsetModelYzerFontein.results.nautical_twilight_end</td>
+                </tr>
+                <tr>
+                    <td>Astronomical twilight end (dusk at 18°): @sunriseSunsetModelYzerFontein.results.astronomical_twilight_end</td>
+                </tr>
+               <tr>
+                    <td>Day length is @sunriseSunsetModelYzerFontein.results.day_length hours</td>
+               </tr>
+               <tr> </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cape Town (GMT+2)</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>Astronomical twilight begin (dawn at -18°): @sunriseSunsetModelCapeTown.results.astronomical_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Nautical twilight begin (dawn at -12°): @sunriseSunsetModelCapeTown.results.nautical_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Civil twilight begin (dawn at -6°): @sunriseSunsetModelCapeTown.results.civil_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Sunrise: @sunriseSunsetModelCapeTown.results.sunrise</td>
+                </tr>
+                <tr>
+                    <td>Solar noon is @sunriseSunsetModelCapeTown.results.solar_noon</td>
+                </tr>
+                <tr>
+                    <td>Sunset: @sunriseSunsetModelCapeTown.results.sunset</td>
+                </tr>
+                <tr>
+                    <td>Civil twilight end (dusk at 6°): @sunriseSunsetModelCapeTown.results.civil_twilight_end</td>
+                </tr>
+                <tr>
+                    <td>Nautical twilight end (dusk at 12°): @sunriseSunsetModelCapeTown.results.nautical_twilight_end</td>
+                </tr>
+                <tr>
+                    <td>Astronomical twilight end (dusk at 18°): @sunriseSunsetModelCapeTown.results.astronomical_twilight_end</td>
+                </tr>
+               <tr>
+                    <td>Day length is @sunriseSunsetModelCapeTown.results.day_length hours</td>
+               </tr>
+               <tr> </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Heverlee (GMT+@timezone)</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>Astronomical twilight begin (dawn at -18°): @sunriseSunsetModelHeverlee.results.astronomical_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Nautical twilight begin (dawn at -12°): @sunriseSunsetModelHeverlee.results.nautical_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Civil twilight begin (dawn at -6°): @sunriseSunsetModelHeverlee.results.civil_twilight_begin</td>
+                </tr>
+                <tr>
+                    <td>Sunrise: @sunriseSunsetModelHeverlee.results.sunrise</td>
+                </tr>
+                <tr>
+                    <td>Solar noon is @sunriseSunsetModelHeverlee.results.solar_noon</td>
+                </tr>
+                <tr>
+                    <td>Sunset: @sunriseSunsetModelHeverlee.results.sunset</td>
+                </tr>
+                <tr>
+                    <td>Civil twilight end (dusk at 6°): @sunriseSunsetModelHeverlee.results.civil_twilight_end</td>
+                </tr>
+                <tr>
+                    <td>Nautical twilight end (dusk at 12°): @sunriseSunsetModelHeverlee.results.nautical_twilight_end</td>
+                </tr>
+                <tr>
+                    <td>Astronomical twilight end (dusk at 18°): @sunriseSunsetModelHeverlee.results.astronomical_twilight_end</td>
+                </tr>
+               <tr>
+                    <td>Day length is @sunriseSunsetModelHeverlee.results.day_length hours</td>
+               </tr>
+               <tr> </tr>
+        </tbody>
+    </table>
+}
+
+
+@code {
+
+}

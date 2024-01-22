@@ -1,0 +1,116 @@
+﻿@inherits MoonBase
+@page "/moon"
+
+
+<h3>Moon Phases</h3>
+
+<img src="images/moon-phases.png" alt="moon-phases" width="1200" height="675" />
+
+@if (dataYzerFontein == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Yzerfontein (GMT+2)</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr>
+                 <td>Moonrise: @dataYzerFontein.MoonRise</td>
+             </tr>
+             <tr>
+                 <td>Moonset: @dataYzerFontein.MoonSet</td>
+             </tr>
+             <tr>
+                <td>@localTime : Moon's ecliptic phase angle = @phase degrees - @quarterNameFine</td>
+             </tr>
+             <tr>
+                 <td>Moon's illuminated fraction = @phasePercentage%</td>
+             </tr>
+             <tr>
+                 <td></td>
+             </tr>
+             <tr>
+                 <td>The next 10 lunar quarters are:</td>
+             </tr>
+             @foreach (var mqS in mqsStructYzerfontein)
+            {
+                <tr>
+                    <td>@mqS.LocalTime : @QuarterName(mqS.MoonQuarter.quarter)</td>
+                </tr>
+            }
+            </tbody>
+     </table>
+
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Cape Town (GMT+2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                     <td>Moonrise: @dataCapeTown.MoonRise</td>
+                 </tr>
+                 <tr>
+                     <td>Moonset: @dataCapeTown.MoonSet</td>
+                 </tr>
+                 <tr>
+                    <td>@localTime : Moon's ecliptic phase angle = @phase degrees - @quarterNameFine</td>
+                 </tr>
+                 <tr>
+                     <td>Moon's illuminated fraction = @phasePercentage%</td>
+                 </tr>
+                 <tr>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td>The next 10 lunar quarters are:</td>
+                 </tr>
+                 @foreach (var mqS in mqsStructCapeTown)
+                {
+                    <tr>
+                        <td>@mqS.LocalTime : @QuarterName(mqS.MoonQuarter.quarter)</td>
+                    </tr>
+                }
+                </tbody>
+    </table>
+    
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Heverlee (GMT+@timeZone)</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                     <td>Moonrise: @dataHeverlee.MoonRise</td>
+                 </tr>
+                 <tr>
+                     <td>Moonset: @dataHeverlee.MoonSet</td>
+                 </tr>
+                 <tr>
+                    <td>@localTime : Moon's ecliptic phase angle = @phase degrees - @quarterNameFine</td>
+                 </tr>
+                 <tr>
+                     <td>Moon's illuminated fraction = @phasePercentage%</td>
+                 </tr>
+                 <tr>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td>The next 10 lunar quarters are:</td>
+                 </tr>
+                 @foreach (var mqS in mqsStructHeverlee)
+                {
+                    <tr>
+                        <td>@mqS.LocalTime : @QuarterName(mqS.MoonQuarter.quarter)</td>
+                    </tr>
+                }
+                </tbody>
+    </table>
+}

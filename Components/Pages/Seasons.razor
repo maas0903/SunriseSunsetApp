@@ -1,0 +1,62 @@
+﻿@inherits SeasonsBase
+@page "/seasons"
+@using Data
+@using CosineKitty
+
+<h3>Seasons</h3>
+
+<h4>Northern hemisphere</h4>
+<img src="images/seasons.jpg" alt="seasons" width="975" height="427" />
+<img src="images/seasons-ng.jpg" alt="seasons-ng" width="860" height="580" />
+<img src="images/seasons-sun.png" alt="seasons-sun" width="1000" height="364" />
+<h4>Southern hemisphere:</h4>
+<h4>Summer to winter, spring to autumn</h4>
+<h4>Autumn to spring and winter to summer</h4>
+<h4></h4>
+
+
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>South Africa (local South African time)</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr>
+                 <td>March Equinox: @seasonsLocalSouthAfrica.MarchEquinox</td>
+             </tr>
+             <tr>
+                 <td>June Solstice: @seasonsLocalSouthAfrica.JuneSolstice</td>
+             </tr>
+             <tr>
+                 <td>September Equinox: @seasonsLocalSouthAfrica.SeptemberEquinox</td>
+             </tr>
+             <tr>
+                 <td>December Solstice: @seasonsLocalSouthAfrica.DecemberSolstice</td>
+             </tr>
+         </tbody>
+</table>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Belgium (local Belgium time)</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr>
+                 <td>March Equinox: @seasonsLocalBelgium.MarchEquinox</td>
+             </tr>
+             <tr>
+                 <td>June Solstice: @seasonsLocalBelgium.JuneSolstice</td>
+             </tr>
+             <tr>
+                 <td>September Equinox: @seasonsLocalBelgium.SeptemberEquinox</td>
+             </tr>
+             <tr>
+                 <td>December Solstice: @seasonsLocalBelgium.DecemberSolstice</td>
+             </tr>
+         </tbody>
+</table>
+

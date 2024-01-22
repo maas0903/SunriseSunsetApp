@@ -1,0 +1,51 @@
+﻿@page "/"
+@using System.Diagnostics
+@using System.Web
+@inject IHttpContextAccessor context;
+
+<PageTitle>Home</PageTitle>
+
+<h1>Little Front End for the Melektro Api</h1>
+
+
+<p>
+    @if (ShowRequestId){
+        <text>Request ID: @RequestId</text>
+    }
+    @* RequestId = @RequestId *@
+</p>
+
+<img src="images/under-construction.webp" alt="under-construction" width="763" height="629" />
+
+@code{
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    public string? RequestId { get; set; }
+    private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    protected override void OnInitialized() 
+    {
+        // RequestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
+        // RequestId = HttpContext.Request.Headers["X-Forwarded-For"];
+        //RequestId = HttpContext.Current.Request.Headers["X-Forwarded-For"];
+        //RequstId = Activity.Current.
+        RequestId = context.HttpContext?.Connection.RemoteIpAddress?.ToString();
+    }
+
+    // private void GetIpValue(out string ipAdd)
+    // {
+    //     ipAdd = HttpContext.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+    //     if (string.IsNullOrEmpty(ipAdd))
+    //     {
+    //         ipAdd = Request.ServerVariables["REMOTE_ADDR"];
+    //     }
+    //     else
+    //     {
+    //         lblIPAddress.Text = ipAdd;
+    //     }
+    // }
+
+
+}
