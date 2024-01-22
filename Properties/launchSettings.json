@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://192.168.63.27:5158"
+      "applicationUrl": "http://192.168.63.28:5158"
     }
   }
 }
